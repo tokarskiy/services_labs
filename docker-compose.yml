@@ -1,0 +1,45 @@
+
+
+version: '2'
+services:
+    books:
+        build: ./books
+        volumes:
+            - ./books:/app
+        ports:
+            - "5000:80"
+        networks:
+            - back-tier
+        depends_on:
+            - db
+    
+    pages:
+        build: ./pages
+        volumes:
+            - ./pages:/app
+        ports:
+            - "5001:80"
+        networks:
+            - back-tier
+            - front-tier
+        depends_on:
+            - books
+        links:
+            - books
+
+    db:
+        image: postgres:10.0
+        container_name: db
+        volumes:
+            - "db-data:/var/lib/postgresql/data"
+        networks:
+            - back-tier
+
+volumes:
+    db-data:
+
+networks:
+    back-tier:
+    front-tier:
+
+
