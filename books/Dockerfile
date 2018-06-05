@@ -1,9 +1,6 @@
 # Using the latest golang version 
 FROM golang:latest
 
-# Set the maintainer name 
-MAINTAINER Andrew Tokarskiy <tokarskiy.a@gmail.com>
-
 # Set the application directory 
 WORKDIR /app
 
