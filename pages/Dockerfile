@@ -1,9 +1,6 @@
 # Using the latest golang version 
 FROM python:3.4-alpine
 
-# Set the maintainer name 
-MAINTAINER Andrew Tokarskiy <tokarskiy.a@gmail.com>
-
 # Set the application directory 
 WORKDIR /app
 RUN pip install flask
