@@ -47,13 +47,16 @@ func initializeDatabase() {
 			"bookName"   VARCHAR(100)             NOT NULL,
 			"authorName" VARCHAR(100)             NOT NULL 
 		);
-                
 
-                DELETE FROM "Books";
-                INSERT INTO "Books" ("bookName", "authorName") VALUES
-                       ('Solaris', 'Stanislaw Lem'),
-                       ('1984', 'George Orwell'),
-                       ('Harry Potter and Philoshoper Stone', 'J.K. Rowling');
+
+		DELETE FROM "Books";
+		INSERT INTO "Books" ("bookName", "authorName") VALUES
+		       ('Solaris', 'Stanislaw Lem'),
+		       ('1984', 'George Orwell'),
+		       ('Harry Potter and Philoshoper Stone', 'J.K. Rowling'),
+		       ('Surely you are joking, Mr. Faynman', 'Richard Faynman'),
+		       ('Free as in Freedom', 'Richard Matthew Stallman'),
+		       ('Permanent Record', 'Edward Snowden');
 	`
 
 	if _, err := db.Query(queryString); err != nil {

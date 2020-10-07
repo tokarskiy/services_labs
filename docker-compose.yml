@@ -21,11 +21,24 @@ services:
             - "5001:80"
         networks:
             - back-tier
-            - front-tier
         depends_on:
             - books
         links:
             - books
+
+    bot:
+        build: ./bot
+        volumes:
+            - ./bot:/apps
+        ports:
+            - "5002:80"
+        networks:
+            - back-tier
+        depends_on:
+            - books
+        links:
+            - books
+
 
     db:
         image: postgres:10.0
@@ -40,6 +53,5 @@ volumes:
 
 networks:
     back-tier:
-    front-tier:
 
 
